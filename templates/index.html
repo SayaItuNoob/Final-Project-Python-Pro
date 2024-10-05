@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <title>Portofolio</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav main-nav">
+        <ul class="main-nav__list main-list">
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#home">HOME</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#about">Pengenalan</a>
+          </li>
+          <li class="main-list__item list-item">
+            <a class="list-item__link" href="#skills">Jenis-Jenis Sampah</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="main">
+      <!-- Bagian Pratinjau -->
+      <section class="main__home home" id="home">
+        <h1 class="home__title">Pengelompok Sampah</h1>
+        <p class="home__subtitle">Organik, Anorganik, B3</p>
+      </section>
+      <!-- Bagian Tentang Saya -->
+      <section class="main__about about" id="about">
+        <h2 class="about__title">Pengenalan</h2>
+        <div class="about__info info-block">
+          <p class="info-block__text">
+            Halo ! paragraf ini akan menjelaskan bagaimana website ini bekerja
+            Di bagian Jenis-Jenis sampah anda dapat memilih jenis sampah dan akan terdapat list sampah sampah yang tergolong ke jenis yang koresponden
+            Saya mengucapkan terima kasih sudah menggunakan web ini, Selamat menggunakan !
+          </div>
+          <div>
+          <img
+            class="info-block__img"
+            src="../static/img/Sampah.png"
+            alt="me"
+            width="250"
+            height="250"
+
+          />
+          </div>
+      </section>
+      <!-- Bagian Keterampilan -->
+      <section class="main__skills skills" id="skills">
+        <h2 class="skills__title">Jenis-Jenis Sampah</h2>
+        <form action="/" method="POST">
+          <ul class="skills__list skills-list">
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/Or.jpg"
+                alt="python"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Sampah Organik</span>
+              <input class="skill__button" type="submit" name="button_python" value="SHOW PROJECT">
+            </li>
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/Anorganik.jpeg"
+                alt="discord"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Sampah Anorganik</span>
+              <input class="skill__button" type="submit" name="button_discord" value="SHOW PROJECT">
+            </li>
+            <li class="skills-list__skill skill">
+              <img
+                class="skill__img"
+                src="../static/img/B3.jpg"
+                alt="html"
+                width="150"
+                height="150"
+              />
+              <span class="skill__info">Sampah B3</span>
+              <input class="skill__button" type="submit" name="button_html" value="SHOW PROJECT">
+            </li>
+          </ul>
+        </form>
+        {% if button_python%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/OrganikHome.png" alt="project" width="500">
+              <!-- <a class="project__link" href="">Buka di GitHub</a> -->
+              <a href="{{ url_for('organik') }}">Pergi melihat</a>
+              
+          </div>
+        {% endif %}
+        {% if button_discord%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/AnorganikHome.png" alt="project" width="500">
+              <a href="/anorganik">Pergi melihat</a>
+          </div>
+        {% endif %}
+        {% if button_html%}
+          <div class="skills__project project" id="project">
+              <img class="project__img" src="../static/img/B3Home.png" alt="project" width="500">
+              <a href="/b3">Pergi melihat</a>
+          </div>
+        {% endif %} 
+      </section>
+      <!-- Formulir Masukan -->
+      <section class="main__feedback feedback" id="feedback">
+        <h2 class="feedback__title">FEEDBACK</h2>
+        <form action="{{url_for('feedback')}}" method="POST" class="feedback__form form">
+          <label for="email">
+            <input type="email" class="form__input" name="email" id="email" placeholder="Masukkan E-mail" required>
+          </label>
+          <label for="text">
+            <textarea name="text" class="form__input" id="text" cols="70" rows="10" required placeholder="Komentar"></textarea>
+          </label>
+          <button class="form__button" type="submit">SEND</button>
+        </form>
+      </section>
+    </main>
+    <!-- Sebuah footer untuk tautan media sosial -->
+    <footer>
+
+    </footer>
+  </body>
+</html>
