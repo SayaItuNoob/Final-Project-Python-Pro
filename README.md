@@ -1,0 +1,1 @@
+Di github ini berisi code mengenai projek final saya, website yang meng-list jenis jenis sampah yang dibedakan menjadi 3, Organik, Anorganik, dan B3. Menggunakan bahasa pemrograman Phyton, HTML dan CSS
